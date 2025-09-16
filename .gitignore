@@ -1,0 +1,22 @@
+# IDE and OS files
+.idea/
+.vscode/
+*.iml
+.DS_Store
+
+# Build output directories
+/backend/build/
+/frontend/dist/
+
+# Dependency directories
+/frontend/node_modules/
+
+# Gradle files
+.gradle/
+build/
+
+# Log files
+*.log
+
+# Local environment files
+.env

@@ -1,0 +1,60 @@
+# Spring Boot 應用程式組態
+spring:
+  application:
+    name: collection-backend
+  datasource:
+    # --- 重要提示 ---
+    # 原始專案使用了一個寫死的遠端資料庫，這有安全風險。
+    # 請將此處設定為連接到您本地的 MySQL 資料庫以進行開發。
+    url: jdbc:mysql://localhost:3306/your_database_name?createDatabaseIfNotExist=true
+    username: your_username
+    password: your_password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      # 連線池設定
+      maximum-pool-size: 3
+      minimum-idle: 1
+      # (毫秒) 連線可閒置的最長時間，超過後將被釋放
+      idle-timeout: 10000
+      # (毫秒) 連線的最大存活時間
+      max-lifetime: 30000
+      # (毫秒) 從連線池獲取連線的逾時時間
+      connection-timeout: 30000
+  jpa:
+    hibernate:
+      # "update": Spring 會在啟動時根據您的 @Entity 類別嘗試更新資料庫結構。
+      ddl-auto: update
+    # "true": 在主控台中顯示由 Hibernate 生成的 SQL 查詢，方便偵錯。
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        # 對於現代 MySQL 版本，請使用 MySQLDialect。
+        dialect: org.hibernate.dialect.MySQLDialect
+  web:
+    resources:
+      # 此路徑用於 Docker 部署，在本地開發時可忽略。
+      static-locations: file:/app/static/
+
+# 日誌級別設定
+logging:
+  level:
+    # 將您專案的根套件設為 DEBUG 以查看更詳細的日誌
+    com.collection: DEBUG
+    org.mybatis: DEBUG
+    org.springframework.jdbc: DEBUG
+    org.springframework: INFO
+
+# MyBatis 組態
+mybatis:
+  # 如果您使用 MyBatis 的 mappers，此路徑必須存在
+  mapper-locations: classpath:/mappers/*.xml
+  # 已更新的類型別名套件名稱
+  type-aliases-package: com.collection.model
+
+debug: true
+
+# 伺服器組態
+server:
+  # 如果存在 PORT 環境變數則使用它，否則預設為 8080
+  port: ${PORT:8080}
