@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="container-fluid tm-container-small footer-position">
         <span>
           <Link to="/privacypolicy" className="link">
-            Cookoes隱私政策
+            Cookies隱私政策
           </Link>
           |{" "}
           <Link to="####" className="link">
