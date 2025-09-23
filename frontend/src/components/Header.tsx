@@ -1,12 +1,19 @@
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Link, useNavigate, useLocation, NavigateFunction } from "react-router-dom";
+import { useEffect, useState, ReactNode, MouseEvent } from "react";
 import { Div, Text, Button, Anchor, Icon } from "atomize";
 
+// Define props interface for SidebarLink
+interface SidebarLinkProps {
+  to: string;
+  navigate: NavigateFunction;
+  children: ReactNode;
+}
+
 // A new, robust, and correct implementation of SidebarLink
-const SidebarLink = ({ to, navigate, children }) => (
+const SidebarLink = ({ to, navigate, children }: SidebarLinkProps) => (
   <Anchor
     href={to} // Render a proper href for accessibility and SEO
-    onClick={(e) => {
+    onClick={(e: MouseEvent<HTMLAnchorElement>) => {
       e.preventDefault(); // Prevent full page reload
       navigate(to); // Perform client-side navigation
     }}
@@ -111,7 +118,7 @@ const Header = () => {
               <Anchor
                 key={cat}
                 href={`/result?tag=${cat}`}
-                onClick={(e) => { e.preventDefault(); navigate(`/result?tag=${cat}`); }}
+                onClick={(e: MouseEvent<HTMLAnchorElement>) => { e.preventDefault(); navigate(`/result?tag=${cat}`); }}
                 d="block"
                 p={{ y: "0.5rem", l: "2.5rem" }}
                 textColor="gray700"

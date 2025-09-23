@@ -5,8 +5,8 @@ import React, { useState, useEffect } from 'react';
 import './TodoPage.css';
 
 // 1. 從新的 API 檔案中引入所有需要的函式和型別
+import type { Todo } from '../../api/todoApi';
 import {
-  Todo,
   getTodos,
   addTodo as apiAddTodo,
   updateTodo as apiUpdateTodo,
