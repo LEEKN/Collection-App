@@ -38,5 +38,5 @@ ENV IS_DOCKER=true
 
 EXPOSE 8080
 
-# Use shell form to ensure environment variables are properly substituted
-CMD ["sh", "-c", "java -jar app.jar --spring.web.resources.static-locations=file:/app/static/ --server.port=${PORT}"]
+# DIAGNOSTIC CMD: Print environment variables instead of running the app.
+CMD ["sh", "-c", "echo '--- Verifying Environment Variables ---' && echo 'MYSQLHOST: $MYSQLHOST' && echo 'MYSQLPORT: $MYSQLPORT' && echo 'MYSQLDATABASE: $MYSQLDATABASE' && echo 'MYSQLUSER: $MYSQLUSER' && echo '--- End Verification ---' && sleep 3600"]
