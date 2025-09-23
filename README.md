@@ -93,7 +93,7 @@ collection_app/
 2.  **啟動後端**:
     ```bash
     cd backend
-    ./gradlew bootRun
+    gradlew bootRun
     ```
 3.  **啟動前端**:
     ```bash

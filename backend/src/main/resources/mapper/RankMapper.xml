@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.collection.mapper.RankMapper">
+
+    <insert id="setRankData" parameterType="com.collection.model.Rank">
+        INSERT INTO `rank` (id, count) VALUES (#{id}, #{count})
+    </insert>
+
+    <select id="getRankData" resultType="com.collection.model.Rank">
+        SELECT * FROM `rank`;
+    </select>
+
+    <select id="getBookData" resultType="com.collection.model.BookResultModel">
+        SELECT
+        B.id,
+        B.book_name AS bookName,
+        B.book_text AS bookText,
+        B.author,
+        B.book_icon AS bookIcon,
+        B.tag,
+        B.created_at AS createTime,
+        R.count,
+        CASE
+        WHEN #{account} = '' THEN 0
+        WHEN f.update_time IS NULL THEN 1
+        ELSE 2
+        END AS isLike
+        FROM `rank` R
+        LEFT JOIN `book` B ON B.id = R.id
+        LEFT JOIN `favorite` f ON B.id = f.id AND f.account = #{account}
+        ORDER BY R.count DESC
+    </select>
+
+    <update id="UpdateRankData" parameterType="com.collection.model.Rank">
+        UPDATE `rank`
+        SET count = count + 1
+        WHERE id = #{id}
+    </update>
+
+</mapper>
