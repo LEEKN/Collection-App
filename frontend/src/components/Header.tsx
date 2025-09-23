@@ -1,5 +1,7 @@
-import { Link, useNavigate, useLocation, NavigateFunction } from "react-router-dom";
-import { useEffect, useState, ReactNode, MouseEvent } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import type { NavigateFunction } from "react-router-dom";
+import { useEffect, useState } from "react";
+import type { ReactNode, MouseEvent } from "react";
 import { Div, Text, Button, Anchor, Icon } from "atomize";
 
 // Define props interface for SidebarLink

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 // 1. Import Atomize components
-import { Div, Text, Input, Button, Icon } from "atomize";
+import { Div, Text, Input, Button } from "atomize";
 
 interface LoginForm {
     account: string;
