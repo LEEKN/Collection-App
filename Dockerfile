@@ -38,6 +38,5 @@ ENV IS_DOCKER=true
 
 EXPOSE 8080
 
-CMD java -jar app.jar \
-    --spring.web.resources.static-locations=file:/app/static/ \
-    --server.port=${PORT}
+# Use shell form to ensure environment variables are properly substituted
+CMD ["sh", "-c", "java -jar app.jar --spring.web.resources.static-locations=file:/app/static/ --server.port=${PORT}"]
