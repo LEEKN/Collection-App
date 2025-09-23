@@ -4,7 +4,8 @@ FROM node:22 AS frontend-build
 WORKDIR /app/frontend
 
 COPY frontend/package*.json ./
-RUN npm install
+# Use --legacy-peer-deps to bypass dependency conflicts with old packages like atomize
+RUN npm install --legacy-peer-deps
 
 COPY frontend/ ./
 RUN npm run build
