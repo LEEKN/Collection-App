@@ -1,5 +1,0 @@
-build:
-  docker:
-    web: Dockerfile
-run:
-  web: java -jar app.jar --spring.web.resources.static-locations=file:/app/static/ --server.port=$PORT
