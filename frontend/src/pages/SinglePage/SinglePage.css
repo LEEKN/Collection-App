@@ -101,15 +101,17 @@
   top: 70px;
 }
 
-.chapterlist {
+/* Shared container style */
+.chapterlist,
+.book-description {
   margin: 10px 0;
-  padding: 0 10px 10px;
+  padding: 20px 15px 15px; /* Added top padding for title spacing */
 }
 
+/* Remove old spacing rule */
 .chapterlist h2 {
   font-size: 20px;
-  position: relative;
-  top: 20px;
+  /* REMOVED position: relative; top: 20px; */
 }
 
 .chapterlist dd {
@@ -121,13 +123,20 @@
   white-space: nowrap;
 }
 
+/* Shared title style */
+.chapter-title,
+.description-title {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* Specific flex layout for chapter-title */
 .chapter-title {
   display: flex !important;
   justify-content: space-between;
   align-items: center;
-  font-weight: 700;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
 }
 
 .sorting a {
@@ -141,4 +150,19 @@
   margin: auto;
   padding: 0;
   float: left;
+}
+
+.description-text {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #374151;
+  padding-top: 1rem;
+}
+
+/* Unify HR style */
+.chapterlist hr,
+.book-description hr {
+    margin: 1rem 0;
+    border: 0;
+    border-top: 1px solid #222;
 }

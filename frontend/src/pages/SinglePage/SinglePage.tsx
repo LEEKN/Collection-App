@@ -55,17 +55,17 @@ const SinglePage = () => {
             </div>
             <div className="bookinfo">
               <h1 className="booktitle">{book?.bookName}</h1>
+              <p className="author">作者：{book?.author}</p>
               <p className="booktag">
                 <span className="bule">
                   <Link
                     to={`/result?tag=${encodeURIComponent(book?.tag ?? "")}`}
                     className="author-link"
                   >
-                    {book?.tag}
+                    #{book?.tag}
                   </Link>
                 </span>
               </p>
-              <p></p>
               <p className="booktitle-new">
                 最新章節:
                 <a
@@ -125,6 +125,11 @@ const SinglePage = () => {
               ))}
             </div>
           </dl>
+          <div className="book book-description">
+            <h2 className="description-title">書本內容</h2>
+            <hr />
+            <p className="description-text">{book?.bookText}</p>
+          </div>
         </div>
       </div>
     </>
