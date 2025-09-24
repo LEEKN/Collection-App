@@ -117,8 +117,8 @@ const Login = () => {
                 <Button
                     type="submit"
                     w="100%"
-                    bg="primary"
-                    hoverBg="accent"
+                    bg="#009999"
+                    hoverBg="#9ca2ae"
                     rounded="10px"
                     h="3rem" // Set explicit height
                 >
