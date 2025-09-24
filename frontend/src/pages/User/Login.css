@@ -1,0 +1,18 @@
+/* Center the login box vertically and horizontally */
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh; /* Adjust as needed to be in the middle of the page */
+  padding: 1rem;
+}
+
+/* Style the white box, similar to .book or .chapterlist */
+.login-box {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 450px; /* Set a max-width for the form */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Optional: add a subtle shadow */
+}

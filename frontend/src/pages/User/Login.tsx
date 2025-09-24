@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// 1. Import Atomize components
 import { Div, Text, Input, Button } from "atomize";
+import "./Login.css"; // Import the new CSS file
 
 interface LoginForm {
     account: string;
@@ -50,82 +50,73 @@ const Login = () => {
     };
 
     return (
-        <Div maxW="400px" m={{ y: "5rem", x: "auto" }} p={{ x: "1rem" }}>
-            <Text tag="h2" textSize="title" m={{ b: "2rem" }} textAlign="center">
-                登入
-            </Text>
-
-            {error && (
-                <Div
-                    p="1rem"
-                    bg="danger100"
-                    textColor="danger800"
-                    m={{ b: "1rem" }}
-                    //rounded="md"
-                    borderColor="danger500"
-                    border="1px solid"
-                    rounded="10px"
-                >
-                    {error}
-                </Div>
-            )}
-
-            <form onSubmit={handleSubmit}>
-                <Input
-                    name="account"
-                    value={form.account}
-                    onChange={handleChange}
-                    placeholder="帳號"
-                    bg="gray200"
-                    textColor="gray700"
-                    borderColor="gray700"
-                    border="1px solid"
-//                     prefix={
-//                             <Icon
-//                               name="UserSolid"
-//                               color="warning800"
-//                               size="16px"
-//                               cursor="pointer"
-//                               pos="absolute"
-//                               top="50%"
-//                               left="0.75rem"
-//                               transform="translateY(-50%)"
-//                             />
-//                           }
-                    m={{ b: "1rem" }}
-                    w="100%"
-                    rounded="10px"
-                    h="3rem" // Set explicit height
-                    required
-                />
-                <Input
-                    name="password"
-                    type="password"
-                    value={form.password}
-                    onChange={handleChange}
-                    placeholder="密碼"
-                    bg="gray200"
-                    textColor="gray500"
-                    borderColor="gray700"
-                    border="1px solid"
-                    m={{ b: "1.5rem" }}
-                    w="100%"
-                    rounded="10px"
-                    h="3rem" // Set explicit height
-                    required
-                />
-                <Button
-                    type="submit"
-                    w="100%"
-                    bg="#009999"
-                    hoverBg="#9ca2ae"
-                    rounded="10px"
-                    h="3rem" // Set explicit height
-                >
+        <div className="login-container">
+            <div className="login-box">
+                <Text tag="h2" textSize="title" m={{ b: "2rem" }} textAlign="center">
                     登入
-                </Button>
-            </form>
-        </Div>
+                </Text>
+
+                {error && (
+                    <Div
+                        p="1rem"
+                        bg="danger100"
+                        textColor="danger800"
+                        m={{ b: "1rem" }}
+                        borderColor="danger500"
+                        border="1px solid"
+                        rounded="10px"
+                    >
+                        {error}
+                    </Div>
+                )}
+
+                <form onSubmit={handleSubmit}>
+                    <Input
+                        name="account"
+                        value={form.account}
+                        onChange={handleChange}
+                        placeholder="帳號"
+                        bg="gray200"
+                        textColor="gray700"
+                        borderColor="gray700"
+                        border="1px solid"
+                        m={{ b: "1rem" }}
+                        p={{ x: "1rem" }} // Added horizontal padding
+                        w="100%"
+                        rounded="10px"
+                        h="3rem" // Set explicit height
+                        required
+                    />
+                    <Input
+                        name="password"
+                        type="password"
+                        value={form.password}
+                        onChange={handleChange}
+                        placeholder="密碼"
+                        bg="gray200"
+                        textColor="gray500"
+                        borderColor="gray700"
+                        border="1px solid"
+                        m={{ b: "1.5rem" }}
+                        p={{ x: "1rem" }} // Added horizontal padding
+                        w="100%"
+                        rounded="10px"
+                        h="3rem" // Set explicit height
+                        required
+                    />
+                    <Button
+                        type="submit"
+                        w="100%"
+                        bg="#009999"
+                        hoverBg="#9ca2ae"
+                        rounded="10px"
+                        h="3rem" // Set explicit height
+                    >
+                        登入
+                    </Button>
+                </form>
+            </div>
+        </div>
     );
 };
 

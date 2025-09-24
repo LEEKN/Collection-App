@@ -1,66 +1,67 @@
+/* The main white container for the page */
 .favorite-container {
   max-width: 1200px;
   margin: 40px auto;
-  padding: 0 20px;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
+/* The grid layout for the favorite books */
 .favorite-flex {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); /* 兩欄 */
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); /* Two columns */
   gap: 24px;
   justify-content: center;
 }
 
+/* Individual favorite item card */
 .item {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  border: 1px solid #ccc;
+  align-items: center;
+  border: 1px solid #e0e0e0; /* Lighter border */
   border-radius: 8px;
-  background-color: #f9f9f9;
+  background-color: #fff; /* Match container background */
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   position: relative;
   width: 100%;
   max-width: 550px;
-  align-items: center;
-  height: 250px; /* ✅ 高度固定，縮小卡片 */
-  align-items: center
+  height: 250px;
 }
 
 .image {
   flex-shrink: 0;
-  width: 140px;    /* 圖片放大一點 */
-  height: 300px;   /* 高一點，比例更好看 */
-  left:10px;
-  padding: 8px;
+  width: 140px;
+  height: 100%; /* Fill the height of the card */
   position: relative;
+  padding: 8px;
 }
 
 .image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;  /*  保持比例、填滿容器 */
+  object-fit: cover;
   display: block;
   border-radius: 4px;
 }
 
 dl {
-  padding: 8px 12px;
+  padding: 12px 16px;
   margin: 0;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 95%;
-  overflow: hidden;
   justify-content: flex-start;
-  gap: 4px;
+  gap: 8px;
+  height: 100%;
+  overflow: hidden;
 }
 
 dt {
   font-weight: bold;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   font-size: 1.1rem;
 }
 
